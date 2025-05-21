@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +12,7 @@ class Handphone extends Model
 
     protected $table = 'handphone';
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     protected static function boot()
     {

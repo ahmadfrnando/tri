@@ -31,6 +31,13 @@ class DataBarangRusakResource extends Resource
 
     protected static ?int $navigationSort = 5;
 
+    protected static ?string $navigationLabel = 'Barang Rusak';
+
+    public static function getPluralLabel(): ?string
+    {
+        return "Semua Barang Rusak";
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();

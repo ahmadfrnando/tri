@@ -35,6 +35,17 @@ class HandphoneResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-device-phone-mobile';
 
     protected static ?int $navigationSort = 2;
+    
+    protected static ?string $navigationLabel = 'Semua Barang';
+
+    public static function getPluralLabel(): ?string
+    {
+        $locale = app()->getLocale();
+        if ($locale == 'id') {
+            return "Daftar Semua Handphone";
+        } else
+            return "Daftar Semua Handphone";
+    }
 
     public static function getNavigationBadge(): ?string
     {

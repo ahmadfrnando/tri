@@ -13,7 +13,13 @@ class ManageDataBarangRusaks extends ManageRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\Action::make('cetak')
+                ->color('success')
+                ->icon('heroicon-s-printer')
+                ->action(function (array $data) {
+                    return redirect()->route('barang-rusak.export');
+                }),
+            Actions\CreateAction::make()->label('Buat Data Barang Rusak')->color('danger'),
         ];
     }
 }

@@ -30,6 +30,13 @@ class BarangKeluarResource extends Resource
 
     protected static ?int $navigationSort = 4;
 
+    protected static ?string $navigationLabel = 'Barang Keluar';
+
+    public static function getPluralLabel(): ?string
+    {
+       return "Semua Barang Keluar";
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();

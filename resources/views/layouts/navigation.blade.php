@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('handphone.index')" :active="request()->routeIs('handphone.*')">
+                    <x-nav-link :href="route('handphone.index')" :active="request()->routeIs(['handphone.*', 'index'])">
                         {{ __('Semua Barang') }}
                     </x-nav-link>
                 </div>

@@ -24,9 +24,14 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected static ?string $navigationLabel = 'Akun Staff';
+    protected static ?string $navigationLabel = 'Akun Pegawai';
 
     protected static ?int $navigationSort = 100;
+
+    public static function getPluralLabel(): ?string
+    {
+        return "Semua Akun Pegawai";
+    }
 
     public static function form(Form $form): Form
     {

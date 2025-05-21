@@ -30,6 +30,13 @@ class UsulanBarangBaruResource extends Resource
 
     protected static ?int $navigationSort = 6;
 
+    protected static ?string $navigationLabel = 'Usulan Barang baru';
+
+    public static function getPluralLabel(): ?string
+    {
+        return "Semua Usulan";
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();

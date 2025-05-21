@@ -25,6 +25,13 @@ class ApprovalUsulanBarangBaruResource extends Resource
 
     protected static ?int $navigationSort = 7;
 
+    protected static ?string $navigationLabel = 'Approval Barang Baru';
+
+    public static function getPluralLabel(): ?string
+    {
+        return "Semua Usulan";
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::where('id_status_usulan', 1)->count();

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\BarangKeluarDataTable;
+use App\Exports\HandphoneExport;
+use App\Exports\UsersExport;
 use App\Models\BarangKeluar;
 use App\Models\BarangMasuk;
 use App\Models\Handphone;
@@ -10,6 +12,7 @@ use App\Models\RefKondisiBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\Datatables;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HandphoneController extends Controller
 {
@@ -58,9 +61,9 @@ class HandphoneController extends Controller
      */
     public function show(string $id)
     {
-        $dataKeluar = BarangKeluar::with('handphone')->where('id', $id)->first();
-        $dataMasuk = BarangMasuk::with('handphone')->where('id_user', $dataKeluar->id_handphone)->first();
-        return view('riwayat-barang-keluar.show', compact('dataMasuk', 'dataKeluar'));
+        // $dataKeluar = BarangKeluar::with('handphone')->where('id', $id)->first();
+        // $dataMasuk = BarangMasuk::with('handphone')->where('id_user', $dataKeluar->id_handphone)->first();
+        // return view('riwayat-barang-keluar.show', compact('dataMasuk', 'dataKeluar'));
     }
 
     /**
