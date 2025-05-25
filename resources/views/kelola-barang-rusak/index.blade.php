@@ -52,7 +52,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="deskripsi_kerusakan" class="form-label">Deskripsi Kerusakan</label>
-                            <textarea type="text" class="form-control" id="deskripsi_kerusakan" name="deskripsi_kerusakan" required></textarea>
+                            <textarea type="text" class="form-control" id="deskripsi_kerusakan" name="deskripsi_kerusakan"></textarea>
                         </div>
                     </form>
                 </div>
