@@ -61,14 +61,14 @@ class KelolaBarangRusakController extends Controller
                 'id_handphone' => 'required|exists:handphone,id',
                 'tanggal' => 'required|date',
                 'deskripsi_kerusakan' => 'required|string',
-                'bukti_barang_rusak' => 'required|file|mimes:jpeg,png,pdf,jpg|max:2048',
+                // 'bukti_barang_rusak' => 'required|file|mimes:jpeg,png,pdf,jpg|max:2048',
             ]);
 
             $filePath = null;
-            if ($request->hasFile('bukti_barang_rusak')) {
-                $file = $request->file('bukti_barang_rusak');
-                $filePath = $file->store('bukti-barang-rusak', 'public');
-            }
+            // if ($request->hasFile('bukti_barang_rusak')) {
+            //     $file = $request->file('bukti_barang_rusak');
+            //     $filePath = $file->store('bukti-barang-rusak', 'public');
+            // }
             DataBarangRusak::create([
                 'id_handphone' => $validatedData['id_handphone'],
                 'tanggal' => $validatedData['tanggal'],
