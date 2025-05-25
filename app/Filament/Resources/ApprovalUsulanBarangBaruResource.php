@@ -32,6 +32,12 @@ class ApprovalUsulanBarangBaruResource extends Resource
         return "Semua Usulan";
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->where('id_status_usulan', 1);  // filter id_status = 1
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::where('id_status_usulan', 1)->count();
@@ -55,6 +61,11 @@ class ApprovalUsulanBarangBaruResource extends Resource
                 TextColumn::make('jumlah')->searchable(),
                 TextColumn::make('tujuan_pengusulan')->searchable(),
                 TextColumn::make('user.name')->sortable()->searchable()->label('Pegawai yang mengajukan'),
+                Tables\Columns\TextColumn::make('pesan')
+                    ->width('300px')
+                    ->html()
+                    ->wrap()
+                    ->searchable(),
                 SelectColumn::make('id_status_usulan')
                     ->label('Status Usulan')
                     ->options(
@@ -68,8 +79,35 @@ class ApprovalUsulanBarangBaruResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\Action::make('beriKomentar')
+                    ->label('Beri Komentar')
+                    ->button()
+                    ->icon('heroicon-o-chat-bubble-bottom-center-text') // icon optional
+                    ->color('success')
+                    ->action(function ($record, $data) {
+                        $usulan = UsulanBarangBaru::find($record->id);
+                        $usulan->update([
+                            'pesan' => $data['pesan'],
+                        ]);
+                        // Atau pakai DB langsung:
+                        // DB::table('comments')->insert([
+                        //     'handphone_id' => $record->id,
+                        //     'isi_komentar' => $data['isi_komentar'],
+                        //     'created_at' => now(),
+                        //     'updated_at' => now(),
+                        // ]);
+
+                        // Beri notifikasi sukses
+                        // $this->notify('success', 'Komentar berhasil dikirim!');
+                    })
+                    ->modalHeading('Tambah Komentar')
+                    ->form([
+                        Forms\Components\Textarea::make('pesan')
+                            ->required()
+                            ->maxLength(255),
+                    ])
+                    ->modalSubmitActionLabel('Kirim Komentar')
+                    ->modalWidth('lg'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

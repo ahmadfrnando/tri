@@ -59,16 +59,15 @@ class BarangKeluarController extends Controller
                 'tanggal_keluar' => 'required|date', // Validasi tanggal
                 'harga_keluar' => 'required|numeric', // Validasi harga
                 'id_kondisi' => 'required|exists:ref_kondisi_barang,id', // Validasi kondisi barang
-                'bukti_barang_keluar' => 'required|file|mimes:jpeg,png,pdf,jpg|max:2048', // Validasi file
             ]);
 
             // Ambil data berdasarkan ID yang dikirimkan
             // Proses file upload jika ada
             $filePath = null;
-            if ($request->hasFile('bukti_barang_keluar')) {
-                $file = $request->file('bukti_barang_keluar');
-                $filePath = $file->store('bukti-barang-keluar', 'public'); // Menyimpan file di public storage
-            }
+            // if ($request->hasFile('bukti_barang_keluar')) {
+            //     $file = $request->file('bukti_barang_keluar');
+            //     $filePath = $file->store('bukti-barang-keluar', 'public'); // Menyimpan file di public storage
+            // }
             BarangKeluar::create([
                 'id_handphone' => $validatedData['id'],
                 'tanggal_keluar' => $validatedData['tanggal_keluar'],

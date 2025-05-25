@@ -10,6 +10,8 @@ class CreateHandphone extends CreateRecord
 {
     protected static string $resource = HandphoneResource::class;
 
+    protected static ?string $title = 'Tambah Handphone';
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');

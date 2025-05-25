@@ -34,7 +34,7 @@ class BarangKeluarResource extends Resource
 
     public static function getPluralLabel(): ?string
     {
-       return "Semua Barang Keluar";
+        return "Semua Barang Keluar";
     }
 
     public static function getNavigationBadge(): ?string
@@ -76,6 +76,10 @@ class BarangKeluarResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('No')->rowIndex()->sortable(),
+                Tables\Columns\ImageColumn::make('bukti_barang_keluar')
+                    ->label('')
+                    ->defaultImageUrl(url('sample-1.jpg'))
+                    ->disk('public'),
                 Tables\Columns\TextColumn::make('handphone.imei')
                     ->copyable()
                     ->copyMessage('Imei berhasil disalin')

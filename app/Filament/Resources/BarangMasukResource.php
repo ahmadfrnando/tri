@@ -73,8 +73,7 @@ class BarangMasukResource extends Resource
                 Forms\Components\FileUpload::make('bukti_barang_masuk')
                     ->disk('public')
                     ->directory('bukti-barang-masuk')
-                    ->maxSize(2048)
-                    ->required(),
+                    ->maxSize(2048),
             ]);
     }
 

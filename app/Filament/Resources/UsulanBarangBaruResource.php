@@ -64,7 +64,13 @@ class UsulanBarangBaruResource extends Resource
                 Tables\Columns\TextColumn::make('model')->searchable(),
                 Tables\Columns\TextColumn::make('jumlah')->searchable(),
                 Tables\Columns\TextColumn::make('tujuan_pengusulan')->searchable(),
-                Tables\Columns\TextColumn::make('user.name')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('pesan')
+                    ->width('300px')
+                    ->html()
+                    ->wrap()
+                    ->label('Pesan Admin')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('user.name')->label('Pegawai Pengusul')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('id_status_usulan')
                     ->label('Status Usulan')
                     ->badge()
