@@ -15,14 +15,8 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <!-- Gambar Barang -->
-                                <div class="col-md-6 mb-4">
-                                    <div class="card">
-                                        <img src="{{ asset('storage/' . $dataKeluar->bukti_barang_keluar) }}" alt="Foto Handphone" class="card-img-top img-fluid" style="max-height: 300px; object-fit: cover;">
-                                    </div>
-                                </div>
                                 <!-- Informasi Barang -->
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="card border-primary">
                                         <div class="card-body row">
                                             <h5 class="card-title fs-4 font-bold">Informasi Handphone</h5>

@@ -13,7 +13,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Foto</th>
+                                <!-- <th>Foto</th> -->
                                 <th>IMEI</th>
                                 <th>Model</th>
                                 <th>tanggal</th>
@@ -46,10 +46,10 @@
                             <label for="tanggal" class="form-label">Tanggal</label>
                             <input type="date" class="form-control" id="tanggal" name="tanggal" aria-describedby="tanggal" required>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="bukti_barang_rusak" class="form-label">Bukti Barang Rusak</label>
                             <input class="form-control" type="file" id="bukti_barang_rusak" name="bukti_barang_rusak" required>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <label for="deskripsi_kerusakan" class="form-label">Deskripsi Kerusakan</label>
                             <textarea type="text" class="form-control" id="deskripsi_kerusakan" name="deskripsi_kerusakan"></textarea>
@@ -77,12 +77,12 @@
                         orderable: false,
                         searchable: false
                     },
-                    {
-                        data: 'bukti_barang_rusak',
-                        name: 'bukti_barang_rusak',
-                        orderable: false,
-                        searchable: false
-                    },
+                    // {
+                    //     data: 'bukti_barang_rusak',
+                    //     name: 'bukti_barang_rusak',
+                    //     orderable: false,
+                    //     searchable: false
+                    // },
                     {
                         data: 'imei',
                         name: 'imei'
@@ -134,6 +134,7 @@
             });
 
             $('#saveChanges').click(function(e) {
+                e.preventDefault();
                 // Panggil fungsi dari ajax-handler.js
                 handleSaveChanges('#formBarangRusak', '#saveChanges', "{{ route('kelola-barang-rusak.store') }}");
             });

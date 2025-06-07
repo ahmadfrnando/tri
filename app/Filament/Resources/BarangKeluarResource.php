@@ -63,11 +63,11 @@ class BarangKeluarResource extends Resource
                 Select::make('id_user')
                     ->label('Pegawai')
                     ->options(User::all()->pluck('name', 'id')),
-                Forms\Components\FileUpload::make('bukti_barang_keluar')
-                    ->disk('public')
-                    ->directory('bukti-barang-keluar')
-                    ->maxSize(2048)
-                    ->label('Bukti Barang Keluar (* Maksimal 2MB)'),
+                // Forms\Components\FileUpload::make('bukti_barang_keluar')
+                //     ->disk('public')
+                //     ->directory('bukti-barang-keluar')
+                //     ->maxSize(2048)
+                //     ->label('Bukti Barang Keluar (* Maksimal 2MB)'),
             ]);
     }
 
@@ -76,10 +76,10 @@ class BarangKeluarResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('No')->rowIndex()->sortable(),
-                Tables\Columns\ImageColumn::make('bukti_barang_keluar')
-                    ->label('')
-                    ->defaultImageUrl(url('sample-1.jpg'))
-                    ->disk('public'),
+                // Tables\Columns\ImageColumn::make('bukti_barang_keluar')
+                //     ->label('')
+                //     ->defaultImageUrl(url('sample-1.jpg'))
+                //     ->disk('public'),
                 Tables\Columns\TextColumn::make('handphone.imei')
                     ->copyable()
                     ->copyMessage('Imei berhasil disalin')

@@ -70,10 +70,10 @@ class BarangMasukResource extends Resource
                     ->label('Pegawai')
                     ->required()
                     ->options(User::all()->pluck('name', 'id')),
-                Forms\Components\FileUpload::make('bukti_barang_masuk')
-                    ->disk('public')
-                    ->directory('bukti-barang-masuk')
-                    ->maxSize(2048),
+                // Forms\Components\FileUpload::make('bukti_barang_masuk')
+                //     ->disk('public')
+                //     ->directory('bukti-barang-masuk')
+                //     ->maxSize(2048),
             ]);
     }
 
@@ -82,10 +82,10 @@ class BarangMasukResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('No')->rowIndex()->sortable(),
-                Tables\Columns\ImageColumn::make('bukti_barang_masuk')
-                    ->label('')
-                    ->defaultImageUrl(url('sample-1.jpg'))
-                    ->disk('public'),
+                // Tables\Columns\ImageColumn::make('bukti_barang_masuk')
+                //     ->label('')
+                //     ->defaultImageUrl(url('sample-1.jpg'))
+                //     ->disk('public'),
                 Tables\Columns\TextColumn::make('handphone.imei')
                     ->label('IMEI')
                     ->searchable()

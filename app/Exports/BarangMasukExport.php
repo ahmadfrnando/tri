@@ -14,7 +14,7 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class BarangMasukExport implements FromQuery, WithHeadings, WithEvents, WithDrawings, WithColumnFormatting, WithMapping, ShouldAutoSize
+class BarangMasukExport implements FromQuery, WithHeadings, WithEvents, WithColumnFormatting, WithMapping, ShouldAutoSize
 {
     public function query()
     {
@@ -33,7 +33,7 @@ class BarangMasukExport implements FromQuery, WithHeadings, WithEvents, WithDraw
             'Kondisi Barang Masuk',
             'Tanggal Masuk',
             'Harga Barang Masuk',
-            'Bukti Barang Masuk',
+            // 'Bukti Barang Masuk',
         ];
     }
 
@@ -49,7 +49,7 @@ class BarangMasukExport implements FromQuery, WithHeadings, WithEvents, WithDraw
             $barangMasuk->kondisi->kondisi_barang,
             $barangMasuk->tanggal_masuk,
             $barangMasuk->harga_masuk,
-            ''
+            // ''
         ];
     }
 
@@ -62,35 +62,35 @@ class BarangMasukExport implements FromQuery, WithHeadings, WithEvents, WithDraw
         ];
     }
 
-    public function drawings()
-    {
-        $drawings = [];
+    // public function drawings()
+    // {
+    //     $drawings = [];
 
-        // Misal kamu ambil semua data dulu
-        $barangMasuk = $this->query()->get();
+    //     // Misal kamu ambil semua data dulu
+    //     $barangMasuk = $this->query()->get();
 
-        foreach ($barangMasuk as $index => $item) {
-            if ($item->bukti_barang_masuk) {  // koreksi typo dari 'bukti_barang_masul'
-                $drawing = new Drawing();
-                $drawing->setName('Foto Barang Masuk');
-                $drawing->setDescription('Foto Barang Masuk');
-                $drawing->setPath(public_path('storage/' . $item->bukti_barang_masuk)); // pastikan path benar
-                $drawing->setHeight(60);
-                $drawing->setCoordinates('J' . ($index + 2)); // kolom J, baris mulai 2 karena header
+    //     foreach ($barangMasuk as $index => $item) {
+    //         if ($item->bukti_barang_masuk) {  // koreksi typo dari 'bukti_barang_masul'
+    //             $drawing = new Drawing();
+    //             $drawing->setName('Foto Barang Masuk');
+    //             $drawing->setDescription('Foto Barang Masuk');
+    //             $drawing->setPath(public_path('storage/' . $item->bukti_barang_masuk)); // pastikan path benar
+    //             $drawing->setHeight(60);
+    //             $drawing->setCoordinates('J' . ($index + 2)); // kolom J, baris mulai 2 karena header
 
-                $drawings[] = $drawing;
-            }
-        }
+    //             $drawings[] = $drawing;
+    //         }
+    //     }
 
-        return $drawings;
-    }
+    //     return $drawings;
+    // }
 
     public function registerEvents(): array
     {
         return [
             AfterSheet::class => function (AfterSheet $event) {
                 $sheet = $event->sheet->getDelegate();
-                $sheet->getColumnDimension('J')->setWidth(100);
+                // $sheet->getColumnDimension('J')->setWidth(100);
                 $sheet->getColumnDimension('B')->setWidth(100);
 
 

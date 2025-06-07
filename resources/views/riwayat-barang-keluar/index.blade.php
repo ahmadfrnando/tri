@@ -12,7 +12,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Foto</th>
+                                <!-- <th>Foto</th> -->
                                 <th>IMEI</th>
                                 <th>Model</th>
                                 <th>Kondisi Barang</th>
@@ -41,22 +41,22 @@
                         orderable: false,
                         searchable: false
                     },
-                    {
-                        data: 'bukti_barang_keluar',
-                        name: 'bukti_barang_keluar',
-                        render: function(data, type, row) {
-                            // Cek apakah data gambar ada
-                            if (data) {
-                                // Jika ada, tampilkan gambar
-                                return `<img src="/storage/${data}" width="100" height="100" class="img-thumbnail" />`;
-                            } else {
-                                // Jika tidak ada, tampilkan placeholder atau string kosong
-                                return `<span>No image</span>`;
-                            }
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
+                    // {
+                    //     data: 'bukti_barang_keluar',
+                    //     name: 'bukti_barang_keluar',
+                    //     render: function(data, type, row) {
+                    //         // Cek apakah data gambar ada
+                    //         if (data) {
+                    //             // Jika ada, tampilkan gambar
+                    //             return `<img src="/storage/${data}" width="100" height="100" class="img-thumbnail" />`;
+                    //         } else {
+                    //             // Jika tidak ada, tampilkan placeholder atau string kosong
+                    //             return `<span>No image</span>`;
+                    //         }
+                    //     },
+                    //     orderable: false,
+                    //     searchable: false
+                    // },
                     {
                         data: 'handphone.imei',
                         name: 'handphone.imei'

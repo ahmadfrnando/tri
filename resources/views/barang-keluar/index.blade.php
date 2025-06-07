@@ -54,10 +54,10 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="bukti_barang_keluar" class="form-label">Bukti Barang Keluar</label>
                             <input class="form-control" type="file" id="bukti_barang_keluar" name="bukti_barang_keluar">
-                        </div>
+                        </div> -->
                     </form>
                 </div>
                 <div class="modal-footer">

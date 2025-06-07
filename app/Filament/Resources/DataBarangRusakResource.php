@@ -61,12 +61,12 @@ class DataBarangRusakResource extends Resource
                     ->label('Pegawai')
                     ->required()
                     ->options(User::all()->pluck('name', 'id')),
-                Forms\Components\FileUpload::make('bukti_barang_rusak')
-                    ->disk('public')
-                    ->directory('bukti-barang-rusak')
-                    ->maxSize(2048)
-                    ->required()
-                    ->label('Bukti Barang Rusak )* Maksimal 2MB)'),
+                // Forms\Components\FileUpload::make('bukti_barang_rusak')
+                //     ->disk('public')
+                //     ->directory('bukti-barang-rusak')
+                //     ->maxSize(2048)
+                //     ->required()
+                //     ->label('Bukti Barang Rusak )* Maksimal 2MB)'),
             ]);
     }
 
@@ -97,10 +97,10 @@ class DataBarangRusakResource extends Resource
                     ->getStateUsing(function ($record) {
                         return RefKondisiBarang::find($record->id_kondisi)->kondisi_barang ?? '';
                     }),
-                ImageColumn::make('bukti_barang_rusak')
-                    ->label('Bukti Barang Rusak')
-                    ->defaultImageUrl(url('sample-1.jpg'))
-                    ->disk('public'),
+                // ImageColumn::make('bukti_barang_rusak')
+                //     ->label('Bukti Barang Rusak')
+                //     ->defaultImageUrl(url('sample-1.jpg'))
+                //     ->disk('public'),
                 TextColumn::make('user.name')->label('Pegawai')
 
             ])

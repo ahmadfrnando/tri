@@ -22,10 +22,10 @@ class KelolaBarangRusakController extends Controller
             $data = DataBarangRusak::with('handphone')->where('id_user', Auth::user()->id)->get();
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->addColumn('bukti_barang_rusak', function ($row) {
-                    $image = '<img src="' . asset('storage/' . $row->bukti_barang_rusak) . '" width="100" height="100" alt="Bukti Barang Rusak">';
-                    return $image;
-                })
+                // ->addColumn('bukti_barang_rusak', function ($row) {
+                //     $image = '<img src="' . asset('storage/' . $row->bukti_barang_rusak) . '" width="100" height="100" alt="Bukti Barang Rusak">';
+                //     return $image;
+                // })
                 ->addColumn('tanggal', function ($row) {
                     return \Carbon\Carbon::parse($row->tanggal)->format('d-m-Y');
                 })
@@ -36,7 +36,7 @@ class KelolaBarangRusakController extends Controller
                     return $row->handphone ? $row->handphone->model : '-';
                 })
 
-                ->rawColumns(['bukti_barang_rusak'])
+                // ->rawColumns(['bukti_barang_rusak'])
                 ->make(true);
         }
         return view('kelola-barang-rusak.index');
@@ -64,7 +64,7 @@ class KelolaBarangRusakController extends Controller
                 // 'bukti_barang_rusak' => 'required|file|mimes:jpeg,png,pdf,jpg|max:2048',
             ]);
 
-            $filePath = null;
+            // $filePath = null;
             // if ($request->hasFile('bukti_barang_rusak')) {
             //     $file = $request->file('bukti_barang_rusak');
             //     $filePath = $file->store('bukti-barang-rusak', 'public');
@@ -73,7 +73,7 @@ class KelolaBarangRusakController extends Controller
                 'id_handphone' => $validatedData['id_handphone'],
                 'tanggal' => $validatedData['tanggal'],
                 'deskripsi_kerusakan' => $validatedData['deskripsi_kerusakan'],
-                'bukti_barang_rusak' => $filePath,
+                // 'bukti_barang_rusak' => $filePath,
                 'id_user' => auth()->user()->id
             ]);
 
